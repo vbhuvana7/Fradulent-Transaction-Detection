@@ -7,8 +7,9 @@ import xgboost as xgb
 
 df1=pd.read_csv(r"D:\first sem\Opti poster\train_transaction.csv")
 df1.shape
+#one hot encoding for all the categorical variables
 df = pd.get_dummies(df1, columns=['ProductCD', 'card4', 'card6', 'M1', 'M2', 'M3', 'M4', 'M5', 'M6'])
-
+#dropping P_emaildomain as it has many different values
 df.drop(['P_emaildomain'], axis=1, inplace=True)
 
 df.isFraud.value_counts(dropna=False)
